@@ -1,0 +1,524 @@
+:root {
+  --mainDarkColor: #19283f;
+  --mainRedColor: #ff3150;
+  --mainYellowColor: #ffc400;
+  --mainBlueColor: #33d1cc;
+  --mainSectionColor: #eff7fa;
+}
+* {
+  padding: 0%;
+  margin: 0%;
+  font-family: "Roboto", serif;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.btn {
+  color: var(--mainYellowColor);
+  background-color: var(--mainRedColor);
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.heading {
+  text-align: center;
+  margin: 0 0 120px;
+}
+.heading h2 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+.heading p {
+  color: rgba(0, 0, 0, 0.582);
+  position: relative;
+  padding-bottom: 20px;
+}
+.heading p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--mainBlueColor);
+  height: 2px;
+  width: 150px;
+}
+.landing {
+  min-height: 100vh;
+  background-color: var(--mainDarkColor);
+  position: relative;
+}
+.navbar {
+  background-color: var(--mainDarkColor);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+.nav > i {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: none;
+}
+@media (max-width: 767px) {
+  .nav > i {
+    display: block;
+  }
+}
+.nav > i:hover {
+  color: var(--mainBlueColor);
+}
+.nav .links {
+  display: flex;
+  gap: 15px;
+}
+@media (max-width: 767px) {
+  .nav .links {
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    display: none;
+    background-color: var(--mainDarkColor);
+    width: 100%;
+    left: 0;
+    padding: 10px;
+  }
+}
+.nav .links.open {
+  display: flex;
+}
+.nav .links a:not(.login) {
+  color: white;
+  font-weight: 600;
+  align-content: center;
+  transition: 0.3s;
+}
+.nav .links a:not(.login).active,
+.nav .links a:not(.login):hover {
+  color: var(--mainBlueColor);
+}
+.nav .links i {
+  color: white;
+  border-left: 1px solid var(--mainBlueColor);
+  align-content: center;
+  padding-left: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .nav .links i {
+    display: none;
+  }
+}
+.nav .links i:hover {
+  color: var(--mainBlueColor);
+}
+.landing .text {
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.landing .text h2 {
+  font-size: 40px;
+}
+.landing .text p {
+  margin: 10px 0 25px;
+  color: rgba(255, 255, 255, 0.692);
+}
+.features {
+  padding: 50px 0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.cards .card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.cards .card span {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #19283f41;
+  font-size: 200px;
+  z-index: -1;
+}
+.cards .card i {
+  color: var(--mainBlueColor);
+  font-size: 50px;
+}
+.cards .card h2 {
+  color: var(--mainYellowColor);
+  font-size: 30px;
+}
+.cards .card p {
+  line-height: 2;
+  color: rgb(0 0 0 / 97%);
+}
+.gallery {
+  background-color: var(--mainSectionColor);
+  padding: 50px 0;
+}
+.shuffle {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.shuffle span {
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.shuffle span.active,
+.shuffle span:hover {
+  background-color: var(--mainRedColor);
+  color: var(--mainYellowColor);
+}
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  margin-bottom: 50px;
+}
+.photos .card {
+  border: 4px solid white;
+  position: relative;
+}
+.photos .card img {
+  width: 100%;
+}
+.photos .card::before {
+  content: "Photo";
+  text-align: center;
+  align-content: center;
+  color: transparent;
+  font-weight: bold;
+  font-size: 30px;
+  width: 0%;
+  height: 100%;
+  background-color: #33d1cc8f;
+  position: absolute;
+  transition: 0.3s;
+}
+.photos .card:hover::before {
+  width: 100%;
+  color: white;
+}
+.gallery .btn {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+}
+.about {
+  padding: 50px 0;
+}
+.about .container > p {
+  text-align: center;
+  width: 300px;
+  margin: -90px auto 60px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.61);
+  font-weight: 600;
+}
+.about .content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .about .content {
+    flex-direction: column;
+  }
+}
+.about .content .text h2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+.about .content .text p:first-of-type {
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.685);
+}
+.about .content .text p:last-of-type {
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.685);
+  margin-bottom: 30px;
+}
+.about .content .image img {
+  max-width: 100%;
+}
+.team {
+  padding: 50px 0;
+  background-color: var(--mainSectionColor);
+}
+.team .container > h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: var(--mainYellowColor);
+}
+.team .container > p {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.74);
+}
+.team .container .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+.team .container .cards .card {
+  background-color: white;
+  overflow: hidden;
+  border-radius: 6px;
+}
+.team .container .cards .card img {
+  width: 100%;
+}
+.team .container .cards .card h2 {
+  background-color: var(--mainBlueColor);
+  padding: 10px;
+  color: white;
+  margin-top: -10px;
+}
+.team .container .cards .card p {
+  padding: 5px;
+}
+.media {
+  padding: 50px 0;
+}
+.media .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.media .container img {
+  max-width: 100%;
+  height: 40px;
+}
+.info {
+  padding: 50px 0;
+  background-color: var(--mainDarkColor);
+  text-align: center;
+  color: white;
+}
+.info h2 {
+  font-size: 30px;
+}
+.info p {
+  margin: 30px 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 600;
+}
+.blog {
+  padding: 50px 0;
+}
+.blog .container .cards {
+  margin-bottom: 40px;
+}
+.blog .container .cards .card {
+  overflow: hidden;
+  border-radius: 6px;
+}
+.blog .container .cards .card p:first-of-type {
+  text-align: left;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.521);
+  margin-bottom: 5px;
+}
+.blog .container .cards .card p:last-of-type {
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -15px;
+}
+.blog .container > a {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+}
+.contact {
+  padding: 50px 0;
+  background-color: var(--mainYellowColor);
+}
+.contact form {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.contact form span {
+  font-weight: bold;
+  font-size: 20px;
+}
+.contact form input[type="email"] {
+  flex: 1;
+  padding: 15px 0;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid white;
+  background-color: transparent;
+  color: white;
+}
+.contact form input[type="email"]::placeholder {
+  transition: 0.5s;
+  color: white;
+}
+.contact form input[type="email"]:focus::placeholder {
+  color: transparent;
+}
+.contact form input[type="submit"] {
+  background-color: var(--mainDarkColor);
+  color: var(--mainYellowColor);
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 15px;
+  border: none;
+  outline: none;
+}
+.footer {
+  background-color: var(--mainDarkColor);
+  padding: 50px 0;
+}
+.footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+}
+.footer .container .col-1 > p {
+  color: rgba(255, 255, 255, 0.644);
+  font-weight: bold;
+  margin: 10px 0;
+  line-height: 1.7;
+}
+.footer .container .col-1 > div span {
+  font-weight: bold;
+  line-height: 1.4;
+}
+.footer .container .col-1 > div span:nth-of-type(1) {
+  color: var(--mainYellowColor);
+}
+.footer .container .col-1 > div span:nth-of-type(2) {
+  color: var(--mainBlueColor);
+}
+.footer .container .col-2 {
+  color: white;
+}
+.footer .container .col-2 h2 {
+  margin-bottom: 10px;
+}
+.footer .container .col-2 .links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.61);
+  font-weight: 600;
+}
+.footer .container .col-2 .links span {
+  transition: 0.3s;
+  cursor: pointer;
+}
+.footer .container .col-2 .links span:hover {
+  color: var(--mainBlueColor);
+}
+.footer .container .col-3 {
+  color: white;
+}
+.footer .container .col-3 h2 {
+  margin-bottom: 10px;
+}
+.footer .container .col-3 .links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer .container .col-3 .links span {
+  color: rgba(255, 255, 255, 0.61);
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.footer .container .col-3 .links span:hover {
+  color: var(--mainBlueColor);
+}
+.footer .container .col-4 {
+  color: white;
+}
+.footer .container .col-4 h2 {
+  margin-bottom: 20px;
+}
+.footer .container .col-4 p {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.61);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.footer .container .col-4 .icons {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+.footer .container .col-4 .icons i {
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+}
+.footer .container .col-4 .icons i:nth-of-type(1) {
+  color: #1877f2;
+}
+.footer .container .col-4 .icons i:nth-of-type(2) {
+  color: #1877f2;
+}
+.footer .container .col-4 .icons i:nth-of-type(3) {
+  color: #ff0000;
+}
+.footer .container .col-4 .icons i:nth-of-type(4) {
+  color: #1877f2;
+}
